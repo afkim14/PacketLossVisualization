@@ -9,9 +9,12 @@
   },
   "dependencies": {
     "d3": "^4.0.0",
+    "firebase": "^6.1.0",
     "idyll": "^4.0.0",
     "idyll-d3-component": "^2.0.0",
-    "react-waypoint": "^9.0.2"
+    "react-svg-piechart": "^2.4.0",
+    "react-waypoint": "^9.0.2",
+    "recharts": "^1.6.2"
   },
   "devDependencies": {
     "gh-pages": "^0.12.0"

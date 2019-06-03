@@ -1,4 +1,5 @@
 const React = require('react');
+import VoteVisualization from './voteVisualization.js'
 
 class Visualization extends React.Component {
   constructor(props) {
@@ -88,7 +89,7 @@ class Visualization extends React.Component {
       );
     } else if (this.props.step == 9) {
       return (
-
+        <VoteVisualization vote={this.props.vote} />
       );
     } else {
       return (

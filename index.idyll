@@ -13,7 +13,7 @@
 [var name:"red_filter" value:false /]
 [var name:"blue_filter" value:false /]
 [var name:"green_filter" value:false /]
-[var name:"vote" value:"_____" /]
+[var name:"vote" value:"" /]
 [Fixed]
   [Animation numSquares:numSquares value:step red_filter:red_filter blue_filter:blue_filter green_filter:green_filter vote:vote /]
 [/Fixed]
@@ -70,14 +70,14 @@ Number of packets:
 [Range min:0 max:10 value:numSquares /]
 [Display value:10 /]
 
-Notice how as you increase the number of packets in the link, the packet loss rate increases.
+*Notice how as you increase the number of packets in the link, the packet loss rate increases.*
 
 [/Step]
 
 [Step]
 ## Internet Service Providers
 
-Internet Service Providers like AT&T and Comcast have the ability to regulate not only what data is allowed to flow through their networks, but also how much of it. Consequently, this gives a significant amount power and responsiblity to the ISPs and Internet users entrust these services to provide them with reliable and stable flows of data.
+Internet Service Providers like AT&T and Comcast have the ability to regulate not only what data is allowed to flow through their networks, but also how much of it. Consequently, this gives a significant amount of power and responsiblity to the ISPs, and Internet users entrust these services to provide them with reliable and stable flows of data.
 
 This power comes with a cost. Not only can these providers like AT&T and Comcast charge users more for faster internet connection, but they can, in theory, also charge streaming services like Netflix, Youtube, and Skype for faster and more reliable transmission of their packets.
 
@@ -113,19 +113,19 @@ Proponents of Net Neutrality argue the following:
 Opponents of Net Neutrality argue the following:
 * **Prioritization of IoT Communications**: By allowing ISPs to regulate the flow of data through the Internet, ISPs would be able to allocate bandwidth and needed resources to prioritized systems such as autonomous driving systems, real-time emergencies, and more.
 * **Regulation and Investment in Infrastructure**: If ISPs were to have control over their data flowing infrastructures, ISPs would be motivated to invest in improving hardware to create a faster and more reliable network.
+
+*Image the red packets are sent from streaming services like Netflix or Hulu, the blue packets sent from a autonomous driving server, and the green ones sent from social media websites mentioning an earthquake somewhere. If ISPs could regulate the packets, they could filter less time-sensitive data such as those from streaming websites and allow more important ones to go through with less packet drops.*
 [/Step]
 
 [Step]
 ## Final Thoughts
 
-As daily users of the internet,
+As daily users of the Internet, it is our duty and responsibility to reach a decision about net neutrality that not only benefits its users, but also its providers. In 2015, the Federal Communications Commission ruled in favor of net neutrality and ISPs were not allowed to block selected content or throttle (the process of slowing down certain applications and services). In 2017, however, the FCC, under a new chairman, voted to repeal regulation passed in 2015. From the perspective of broadband companies, the regulations imposed in 2015 were too restrictive and argued that they had already mutually committed to not blocking or slowing online connections.
 
-**`[Voting choice of yes or no]`**
+It is important to note, however, that the net neutrality debate is still ongoing. Removing regulation allows broadband companies to essentially restrict access to information and squeezes smaller scale companies that rely on fast and reliable connections. On the other hand, regulating the Internet allows data prioritization to services related to medicine and autonous driving and also prevents a large body like the FCC to have full control over the internet. How do you approach these trade-offs? Only history will tell.
+
 Do you want Net Neutrality?
 [Radio value:vote options:`["Yes", "No"]`  /]
-You have voted [b][Display value:vote /][/b]
-
-
-
+You have voted: [b className:`vote == "Yes" ? "yesVote" : "noVote" `][Display value:vote /][/b].
 [/Step]
 [/Scroller]

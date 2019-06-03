@@ -54,6 +54,14 @@ img {
   display: inline;
 }
 
+.yesVote {
+  color: #00C49F;
+}
+
+.noVote {
+  color: #FF8042;
+}
+
 label {
   margin-right: 10px;
 }

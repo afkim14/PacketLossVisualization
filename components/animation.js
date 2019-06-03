@@ -146,7 +146,7 @@ class Animation extends React.Component {
 
   render() {
     const { hasError, idyll, updateProps, ...props } = this.props;
-    return <Visualization step={this.props.value} squares={this.state.squares}/>;
+    return <Visualization step={this.props.value} squares={this.state.squares} vote={this.props.vote}/>;
   }
 }
 
