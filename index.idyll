@@ -1,0 +1,131 @@
+[meta title:"PacketLoss" description:"Short description of your project" /]
+
+[Header
+  title:"Network Packet Loss"
+  subtitle: "The fine line between unintentional and intentional data manipulation."
+  author:"Andres Fernando Kim"
+  authorLink:"https://andresfernandokim.com"
+  background: "#3e3e3e"
+   /]
+
+[var name:"step" value:0 /]
+[var name:"numSquares" value:5 /]
+[var name:"red_filter" value:false /]
+[var name:"blue_filter" value:false /]
+[var name:"green_filter" value:false /]
+[var name:"vote" value:"_____" /]
+[Fixed]
+  [Animation numSquares:numSquares value:step red_filter:red_filter blue_filter:blue_filter green_filter:green_filter vote:vote /]
+[/Fixed]
+
+[Scroller currentStep:step]
+[Step]
+## Overview of Network Packets
+
+What are **packets**? At a high level definition, packets are data containers that are sent throughout a network. Usually when data is transmitted, it is segmented into smaller size packets that hold crucial information about not only the data, but also about the source and destination addresses.
+
+The ***packet header*** holds the source and destination IP addresses, information regarding the underlying protocol (usually TCP/IP), error detection code, packet sequencing information, and more.
+
+The ***packet data*** contains the data content itself stored in bytes.
+
+[/Step]
+
+[Step]
+## Packet Routing and Handling
+**Packet routing** is the process through which data packets are forwarded from source to destination. We can visualize packet routing as a graph where [b className:"nodes"]nodes[/b] are devices (routers, computers, switches) and [b className:"edges"]edges[/b] are network links between these devices.
+
+**Packet handling** is how a specific device (a node in the graph) manages the packets it receives. In certain routing algorithms, these devices choose the next intermediate node to send the packet to minimize latency and maximize throughput. They are also responsible for handling corrupted packets where data might have been lost or modified.
+[/Step]
+
+[Step]
+## Packet Loss
+
+**Definition**: when one or more packets travelling through a network do not reach the intended destination.
+
+As packets are being transmitted, packets might be dropped due to many reasons, of which some are listed below:
+* **Network Congestion**: When links and routers are congested with packets, a common solution is to simply drop packets to alleviate throughput. We will be going further in depth on this cause of packet loss.
+* **Packet Corruption**: At every intermediate router or node in the network graph, a check is made to see if the packet data has been modified. If it has, data corruption has occured and the packet is dropped.
+* **Hardware Failures**: Outdated routers and network infrastructure can cause packets to drop due to the technological gap between a packet's software structure and the intermediate hardware device.
+[/Step]
+
+[Step]
+## Consequence of Packet Loss
+Some of the consequences of packet loss are the following:
+* **Network Disruption**: When multiple packets are dropped, the senders of each packet attempt to retransmit the lost data. If too many retransmissions are executed and packet routing continues to fail, the network will be disrupted affecting non-corrupted packets as well as causing rerouting of packets.
+* **Slow Streaming**: Real-time services like Netflix and Youtube rely on consistent data transmission to their users. If multiple packets are dropped, the accumulated time it takes to retransmit the packet from source to destination could be experienced by the user in the form of lag.
+* **Total Loss of Connection**: Sometimes a faulty router or a continuous stream of corrupted packets can cause the packets to never reach their destination, closing off the connection between the sender and the receiver entirely.
+[/Step]
+
+[Step]
+## Main Cause of Packet Loss
+
+**Network Congestion**: each network link has a maximum **bandwidth**. When the limit is reached, some packets are dropped since the link is not able to store all packets.
+
+The key here is deciding **what** packets are dropped. Packet loss can easily occur due to unintentional malfunction in the hardware of a router, or intentionally as a means to balance the network.
+
+Number of packets:
+[Display value:numSquares /]
+[br /]
+[Display value:0 /]
+[Range min:0 max:10 value:numSquares /]
+[Display value:10 /]
+
+Notice how as you increase the number of packets in the link, the packet loss rate increases.
+
+[/Step]
+
+[Step]
+## Internet Service Providers
+
+Internet Service Providers like AT&T and Comcast have the ability to regulate not only what data is allowed to flow through their networks, but also how much of it. Consequently, this gives a significant amount power and responsiblity to the ISPs and Internet users entrust these services to provide them with reliable and stable flows of data.
+
+This power comes with a cost. Not only can these providers like AT&T and Comcast charge users more for faster internet connection, but they can, in theory, also charge streaming services like Netflix, Youtube, and Skype for faster and more reliable transmission of their packets.
+
+Filter Red Packets: [Boolean value:red_filter /]
+[br /]
+Filter Blue Packets: [Boolean value:blue_filter /]
+[br /]
+Filter Green Packets: [Boolean value:green_filter /]
+
+So, how do you know if an Internet Service Provider is intentionally dropping packets from low paying users or competing companies? It is harder than it appears to be.
+
+[/Step]
+
+[Step]
+## Intentional vs. Unintentional Packet Loss
+
+Because packet losses are a naturally occuring feature of any network, it is extremely difficult to differentiate [b className:"unintentional"]unintentional[/b] and [b className:"intentional"]intentional[/b] packet losses. If AT&T, for example, were to drop a certain percentage of packets sent from Netflix servers just enough to seem as if the packets were dropping naturally, an expensive and comprehensive analysis of the network would have to be made to detect these small, yet impactful changes. Users would start to experience weak connections and slow loading times and that might even prompt them to switch to another streaming service like Hulu.
+
+This is where the debate behind **net neutrality** comes in. Net neutrality, following the notion of an open and free internet for all, is the idea that ISPs should treat all incoming data the same. In other words, they should not be able to intentionally block certain services.
+[/Step]
+
+[Step]
+## The Debate
+
+Proponents of Net Neutrality argue the following:
+* **Freedom of Information Exchange**: Allowing ISPs to regulate the Internet would limit who gets acecss to what information.
+* **Competition and Innovation**: Allowing ISPs to the regulate the internet would prevent startups that rely on transmitting fast and reliable data to expand. There would be high barriers of entry due to the rising cost companies would have to pay to have their data sent through the network.
+[/Step]
+
+[Step]
+## The Other Side
+
+Opponents of Net Neutrality argue the following:
+* **Prioritization of IoT Communications**: By allowing ISPs to regulate the flow of data through the Internet, ISPs would be able to allocate bandwidth and needed resources to prioritized systems such as autonomous driving systems, real-time emergencies, and more.
+* **Regulation and Investment in Infrastructure**: If ISPs were to have control over their data flowing infrastructures, ISPs would be motivated to invest in improving hardware to create a faster and more reliable network.
+[/Step]
+
+[Step]
+## Final Thoughts
+
+As daily users of the internet,
+
+**`[Voting choice of yes or no]`**
+Do you want Net Neutrality?
+[Radio value:vote options:`["Yes", "No"]`  /]
+You have voted [b][Display value:vote /][/b]
+
+
+
+[/Step]
+[/Scroller]

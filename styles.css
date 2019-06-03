@@ -1,0 +1,59 @@
+
+.d3-component svg {
+  background: #ddd;
+  max-height: 300px;
+}
+
+@media all and (max-width: 1000px) {
+  .d3-component svg {
+    max-height: 200px;
+  }
+}
+
+.idyll-scroll-text .idyll-step {
+  max-width: 55vw;
+  position: relative;
+  top: -130vh;
+  padding: 4vw;
+}
+
+.fixed {
+  position: fixed;
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  align-items: center;
+  right: 65px;
+  top: 0;
+  bottom: 0;
+  width: calc(80vw - 550px);
+  justify-content: center;
+}
+
+img {
+  width: 100%;
+}
+
+.nodes {
+  color: #38BA7D;
+  display: inline;
+}
+
+.edges {
+  color: #07ADBD;
+  display: inline;
+}
+
+.unintentional {
+  color: #38BA7D;
+  display: inline;
+}
+
+.intentional {
+  color: #Eb2f39;
+  display: inline;
+}
+
+label {
+  margin-right: 10px;
+}
