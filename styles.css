@@ -11,10 +11,19 @@
 }
 
 .idyll-scroll-text .idyll-step {
-  max-width: 55vw;
+  width: 50vw;
   position: relative;
   top: -130vh;
   padding: 4vw;
+}
+
+.idyll-text-container {
+  height: 50vw;
+}
+
+.article-header {
+  width: 50vw;
+  height: 100%;
 }
 
 .fixed {
@@ -26,12 +35,12 @@
   right: 65px;
   top: 0;
   bottom: 0;
-  width: calc(80vw - 550px);
+  width: calc(80vw - 600px);
   justify-content: center;
 }
 
 img {
-  width: 100%;
+  width: 80%;
 }
 
 .nodes {

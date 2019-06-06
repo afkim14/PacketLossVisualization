@@ -5,21 +5,6 @@ import {
 } from 'recharts';
 
 const COLORS = ['#00C49F', '#FF8042'];
-// const RADIAN = Math.PI / 180;
-// const renderCustomizedLabel = ({
-//   cx, cy, midAngle, innerRadius, outerRadius, percent, index,
-// }) => {
-//    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
-//   const x = cx + radius * Math.cos(-midAngle * RADIAN);
-//   const y = cy + radius * Math.sin(-midAngle * RADIAN);
-//
-//   return (
-//     <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
-//       {`${(percent * 100).toFixed(0)}%`}
-//     </text>
-//   );
-// };
-
 class VoteVisualization extends React.Component {
   constructor(props) {
     super(props);
@@ -80,8 +65,8 @@ class VoteVisualization extends React.Component {
       );
     } else if (this.state.data.length > 0) {
       return (
-        <PieChart width={400} height={400}>
-          <Pie dataKey="value" data={this.state.data} cx={200} cy={200} outerRadius={80} fill="#8884d8" labelLine={true} label>
+        <PieChart width={800} height={800}>
+          <Pie dataKey="value" data={this.state.data} cx={400} cy={400} outerRadius={120} fill="#8884d8" labelLine={true} label>
           {
             this.state.data.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
           }

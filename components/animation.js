@@ -42,7 +42,7 @@ class Animation extends React.Component {
   }
 
   updateAnimationState() {
-    var endpoint = 380;
+    var endpoint = 600;
     var speed = 2;
     if (this.state.currValue != this.props.value) {
       this.setState({currValue: this.props.value, squares: this.initializeSquares(this.props.value)});
@@ -55,7 +55,7 @@ class Animation extends React.Component {
     }
 
     for (var i = 0; i < this.state.squares.length; i++) {
-      if (this.state.squares[i].xchange - (i * 50) >= endpoint || this.state.squares[i].ychange - (i * 50) >= endpoint - 150) {
+      if (this.state.squares[i].xchange - (i * 50) >= endpoint || this.state.squares[i].ychange - (i * 50) >= endpoint - 400) {
         var newSquares = this.state.squares;
         newSquares[i].xchange = 0;
         newSquares[i].ychange = 0;
@@ -74,7 +74,7 @@ class Animation extends React.Component {
         this.setState({squares: newSquares});
       } else if (this.props.value == 2 || this.props.value == 3 || this.props.value == 4 || this.props.value == 6 || this.props.value == 8) {
         var xfixed = this.state.squares[i].xfixed;
-        if (this.state.squares[i].xchange - (i * 50) == (endpoint/2) && !xfixed) {
+        if (this.state.squares[i].xchange - (i * 50) == Math.floor((endpoint/2)) - 16 && !xfixed) {
           var packetloss_prob = 100;
           if (this.props.value == 8) {
             if (this.state.squares[i].currColor != COLORS[0]) {
@@ -98,7 +98,7 @@ class Animation extends React.Component {
         }
 
         if (this.props.value == 3) {
-          speed = 0.5;
+          speed = 1;
         }
 
         var newSquares = this.state.squares;
@@ -109,13 +109,13 @@ class Animation extends React.Component {
         } else {
           newSquares[i].ychange += speed;
           newSquares[i].xfixed = true;
-          newSquares[i].currColor = "#EBEBEB";
+          newSquares[i].currColor = "#3E3E3E";
           this.setState({ squares: newSquares });
         }
       } else if (this.props.value == 5 || this.props.value == 7) {
         var newSquares = this.state.squares;
         var xfixed = this.state.squares[i].xfixed;
-        if (this.state.squares[i].xchange - (i * 50) == (endpoint/2) && !xfixed) {
+        if (this.state.squares[i].xchange - (i * 50) == (endpoint/2) - 16 && !xfixed) {
           if ((this.props.red_filter && newSquares[i].currColor == COLORS[0]) ||
               (this.props.blue_filter && newSquares[i].currColor == COLORS[1]) ||
               (this.props.green_filter && newSquares[i].currColor == COLORS[2]))
@@ -131,7 +131,7 @@ class Animation extends React.Component {
         } else {
           newSquares[i].ychange += speed;
           newSquares[i].xfixed = true;
-          newSquares[i].currColor = "#EBEBEB";
+          newSquares[i].currColor = "#3E3E3E";
           this.setState({ squares: newSquares });
         }
       }

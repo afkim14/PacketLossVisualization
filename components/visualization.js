@@ -22,11 +22,11 @@ class Visualization extends React.Component {
       ctx.clearRect(0, 0, width, height);
       ctx.translate(width / 2, height / 2);
       ctx.fillStyle = '#07ADBD';
-      ctx.fillRect(Math.floor(-width / 4) - 200, Math.floor(-height / 6) + 30, width, 3);
+      ctx.fillRect(Math.floor(-width / 4) - 140, Math.floor(-height / 6) + 30, width + 50, 3);
       ctx.strokeStyle = squares[0].currColor;
-      ctx.strokeRect(Math.floor(-width / 4) - 160 + squares[0].xchange, Math.floor(-height / 10) + squares[0].ychange, 30, 30);
+      ctx.strokeRect(Math.floor(-width / 4) - 180 + squares[0].xchange, Math.floor(-height / 10) + squares[0].ychange, 30, 30);
       ctx.fillStyle = '#38BA7D';
-      ctx.fillRect(Math.floor(-width / 4), Math.floor(-height / 6), 70, 70);
+      ctx.fillRect(Math.floor(-width / 4) + 80, Math.floor(-height / 6), 70, 70);
       ctx.restore();
     } else if (step == 3 || step == 4 || step == 5 || step == 7 || step == 8) {
       const canvas = this.canvasRef.current;
@@ -39,13 +39,13 @@ class Visualization extends React.Component {
       ctx.clearRect(0, 0, width, height);
       ctx.translate(width / 2, height / 2);
       ctx.fillStyle = '#07ADBD';
-      ctx.fillRect(Math.floor(-width / 4) - 200, Math.floor(-height / 6) + 30, width, 3);
+      ctx.fillRect(Math.floor(-width / 4) - 140, Math.floor(-height / 6) + 30, width, 3);
       for (var i = 0; i < squares.length; i++) {
         ctx.strokeStyle = squares[i].currColor;
-        ctx.strokeRect(Math.floor(-width / 4) - (160 + (i * 50)) + squares[i].xchange, Math.floor(-height / 10) + squares[i].ychange, 30, 30);
+        ctx.strokeRect(Math.floor(-width / 4) - (180 + (i * 50)) + squares[i].xchange, Math.floor(-height / 10) + squares[i].ychange, 30, 30);
       }
       ctx.fillStyle = '#38BA7D';
-      ctx.fillRect(Math.floor(-width / 4), Math.floor(-height / 6), 70, 70);
+      ctx.fillRect(Math.floor(-width / 4) + 80, Math.floor(-height / 6), 70, 70);
       ctx.restore();
     } else if (step == 6) {
       const canvas = this.canvasRef.current;
@@ -60,23 +60,23 @@ class Visualization extends React.Component {
 
       // INTENTIONAL
       ctx.fillStyle = '#07ADBD';
-      ctx.fillRect(Math.floor(-width / 4) - 200, Math.floor(-height / 6) - 30, width, 3);
+      ctx.fillRect(Math.floor(-width / 4) - 140, Math.floor(-height / 6) - 30, width, 3);
       for (var i = 0; i < squares.length / 2; i++) {
         ctx.strokeStyle = squares[i].currColor;
-        ctx.strokeRect(Math.floor(-width / 4) - (160 + (i * 50)) + squares[i].xchange, Math.floor(-height / 10) - 60 - squares[i].ychange, 30, 30);
+        ctx.strokeRect(Math.floor(-width / 4) - (180 + (i * 50)) + squares[i].xchange, Math.floor(-height / 10) - 60 - squares[i].ychange, 30, 30);
       }
       ctx.fillStyle = '#eb2f39';
-      ctx.fillRect(Math.floor(-width / 4), Math.floor(-height / 6) - 60, 70, 70);
+      ctx.fillRect(Math.floor(-width / 4) + 80, Math.floor(-height / 6) - 60, 70, 70);
 
       // UNITENTIONAL
       ctx.fillStyle = '#07ADBD';
-      ctx.fillRect(Math.floor(-width / 4) - 200, Math.floor(-height / 6) + 70, width, 3);
+      ctx.fillRect(Math.floor(-width / 4) - 140, Math.floor(-height / 6) + 70, width, 3);
       for (var i = 0; i < squares.length / 2; i++) {
         ctx.strokeStyle = squares[i].currColor;
-        ctx.strokeRect(Math.floor(-width / 4) - (160 + (i * 50)) + squares[i].xchange, Math.floor(-height / 10) + 40 + squares[i].ychange, 30, 30);
+        ctx.strokeRect(Math.floor(-width / 4) - (180 + (i * 50)) + squares[i].xchange, Math.floor(-height / 10) + 40 + squares[i].ychange, 30, 30);
       }
       ctx.fillStyle = '#38BA7D';
-      ctx.fillRect(Math.floor(-width / 4), Math.floor(-height / 6) + 40, 70, 70);
+      ctx.fillRect(Math.floor(-width / 4) + 80, Math.floor(-height / 6) + 40, 70, 70);
 
       ctx.restore();
     }
